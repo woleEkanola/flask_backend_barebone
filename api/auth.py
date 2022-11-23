@@ -38,6 +38,10 @@ def verify_token(access_token):
     if access_token:
         return User.verify_access_token(access_token)
 
+@token_auth.get_user_roles
+def get_user_roles(user):
+    return user.get_roles()
+
 
 @token_auth.error_handler
 def token_auth_error(status=401):

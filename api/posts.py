@@ -15,7 +15,7 @@ update_post_schema = PostSchema(partial=True)
 
 
 @posts.route('/posts', methods=['POST'])
-@authenticate(token_auth)
+@authenticate(token_auth, role='admin')
 @body(post_schema)
 @response(post_schema, 201)
 def new(args):

@@ -133,6 +133,9 @@ class User(Updateable, db.Model):
         token = Token(user=self)
         token.generate()
         return token
+    
+    def get_roles(self):
+        return ['admin']
 
     @staticmethod
     def verify_access_token(access_token, refresh_token=None):
